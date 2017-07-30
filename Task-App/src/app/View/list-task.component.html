@@ -1,0 +1,38 @@
+<section id="Task">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1">
+                <!-- Show Task list when it has records-->
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Task List</h3>
+                    </div><!-- Panel Header-->
+                    <div class="panel-body">
+                        <table *ngIf="listOfTasks.length > 0" class="table table-striped table-bordered ">
+                            <tr>
+                                <th> Index</th>
+                                <th> Task Title</th>
+                                <th> Description</th>
+                                <th> Completion Date</th>
+                                <th> Action</th>
+                            </tr>
+                            <!-- Looping through Task list-->
+                            <tr *ngFor="let task of listOfTasks; let i=index;">
+                                <td>{{task.id}}</td>
+                                <td>{{task.title | capitalise}}</td>
+                                <!--Task name in capitalise format-->
+                                <td>{{task.description | capitalise}}</td>
+                                <!--Task description in uppercase-->
+                                <td hoverOverElement >{{task.taskCompletionDate | date :'shortDate'}}</td>
+                                <!-- Formating date using pipes -->
+                                <td><input type="button" class="btn btn-success" [routerLink]="['/DetailsTask', task.id]" value="View Details"></td>
+                                <!-- Edit detiails-->
+                            </tr>
+                        </table>
+                    </div><!-- Panel Body-->
+                </div>
+            </div>
+        </div>
+        <!-- Task List -->
+    </div>
+</section>

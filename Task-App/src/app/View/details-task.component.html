@@ -1,0 +1,24 @@
+<section id="Task">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1">
+                <!-- Show Task Details-->
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Task Details Page</h3>
+                    </div><!-- Panel Header-->
+                    <div class="panel-body">
+                        <div> <b>Task ID:</b><br/> {{ detailsTask.id }} </div> <br>
+                        <div> <b>Task Title:</b><br/> {{ detailsTask.title }}</div> <br>
+                        <div> <b>Task Description:</b><br/> {{ detailsTask.description}}</div> <br>
+                        <div> <b>Task Complettion Date:</b><br/><div> {{ detailsTask.taskCompletionDate }}</div></div> <br>
+                    </div><!-- Panel body-->
+                    <div class="panel-footer">
+                        <button type="button" class="btn btn-primary" (click)="goBack()">Go Back</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Task Details -->
+    </div>
+</section>

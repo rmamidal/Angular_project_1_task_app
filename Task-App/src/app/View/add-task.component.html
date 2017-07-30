@@ -1,0 +1,55 @@
+<section id="Task">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1">
+                <div class="form-wrap">
+                    <!-- Task Data Submit form-->
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Add Task</h3>
+                        </div><!-- Panel Header-->
+                        <form [formGroup]="formTask" (ngSubmit)="addTask()" novalidate class="panel-body">
+                            <div class="form-group">
+                                <label> Task Title </label>
+                                <input type="text" class="form-control" name="title" formControlName="title" [(ngModel)]="currentTask.title" placeholder="Task Title">
+                                <!-- Field Validation-->
+                                <div *ngIf="formTask.controls['title'].errors && (formTask.controls['title'].dirty || formTask.controls['title'].touched)"
+                                    class="alert alert-danger">
+                                    <div [hidden]="!formTask.controls['title'].hasError('required')">
+                                        Name Required
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label> Task Description </label>
+                                <input type="text" class="form-control" name="description" formControlName="description" [(ngModel)]="currentTask.description"
+                                    placeholder="Taskw Description" required>
+                                <!-- Field Validation-->
+                                <div *ngIf="formTask.controls['description'].errors && (formTask.controls['description'].dirty || formTask.controls['description'].touched)"
+                                    class="alert alert-danger">
+                                    <div [hidden]="!formTask.controls['description'].hasError('required')">
+                                        Description Required
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label> Release Date </label>
+                                <input type="date" class="form-control" name="taskCompletionDate" formControlName="taskCompletionDate" [(ngModel)]="currentTask.taskCompletionDate"
+                                    placeholder="dd/mm/yyyy" required>
+                                <!-- Field Validation-->
+                                <div *ngIf="formTask.controls['taskCompletionDate'].errors && (formTask.controls['taskCompletionDate'].dirty || formTask.controls['taskCompletionDate'].touched)"
+                                    class="alert alert-danger">
+                                    <div [hidden]="!formTask.controls['taskCompletionDate'].hasError('required')">
+                                        Date Required
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="submit" class="btn btn-success btn-block" value="Add" [disabled]="formTask.invalid">
+                        </form><!-- Panel body-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- User Submission form -->
+    </div>
+</section>
